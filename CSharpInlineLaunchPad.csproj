@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="LICENSE.txt" />
     <None Remove="Resources\icon.png" />
     <None Remove="Resources\RunCSharp.svg" />
     <None Remove="Icons.imagemanifest" />
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="LICENSE.txt" />
     <Content Include="Resources\icon.png" />
     <Content Include="Resources\square-terminal.png" />
     <ImageManifest Include="Icons.imagemanifest">
