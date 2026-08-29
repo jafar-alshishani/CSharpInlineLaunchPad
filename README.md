@@ -1,6 +1,6 @@
 # C# Inline LaunchPad
 
-A lightweight Visual Studio 2022 extension designed to provide single-click inline execution of C# console applications and quick terminal access right from your main toolbar.
+A lightweight Visual Studio 2026 extension designed to provide single-click inline execution of C# console applications and quick terminal access right from your main toolbar.
 
 ![C# Inline LaunchPad Toolbar](https://raw.githubusercontent.com/jafar-alshishani/CSharpInlineLaunchPad/main/Resources/square-terminal_2.png)
 
@@ -20,7 +20,7 @@ A lightweight Visual Studio 2022 extension designed to provide single-click inli
 
 ## Requirement
 
-* Visual Studio 2022 (v17.0+)
+* Visual Studio 2026 (v17.0+)
 * `.NET Core` / `.NET 6+` SDK
 
 ## License
