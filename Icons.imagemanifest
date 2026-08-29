@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifest/2014">
+	<Symbols>
+		<Guid Symbol="guidCSharpClassroomImages" Value="{9B65F912-3B47-4C7E-A891-2F16D8A31D0A}" />
+		<ID Symbol="iconRunCSharp" Value="1" />
+	</Symbols>
+	<Images>
+		<Image Guid="$(guidCSharpClassroomImages)" ID="$(iconRunCSharp)">
+			<Size Value="16">
+				<Files>
+					<File Path="Resources/RunCSharp.svg" />
+				</Files>
+			</Size>
+		</Image>
+	</Images>
+	<ImageAssets>
+		<ImageAsset Guid="$(guidCSharpClassroomImages)" ID="$(iconRunCSharp)">
+			<Theme Category="Dark">
+				<Colors>
+					<Color Name="Background" Value="#00000000" />
+					<Color Name="Foreground" Value="#FFFFFFFF" />
+				</Colors>
+			</Theme>
+		</ImageAsset>
+	</ImageAssets>
+</ImageManifest>

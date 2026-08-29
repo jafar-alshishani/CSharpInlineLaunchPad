@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Include href="KnownImageIds.vsct"/>
+
+	<Commands package="guidCSharpClassroomPackage">
+		<Groups>
+			<!-- Tools Menu Group -->
+			<Group guid="guidCSharpClassroomCmdSet" id="CSharpClassroomGroup" priority="0x0600">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+			</Group>
+
+			<!-- Main Toolbar Group positioned after Save/Undo -->
+			<Group guid="guidCSharpClassroomCmdSet" id="CSharpClassroomToolbarGroup" priority="0x950">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_STANDARD"/>
+			</Group>
+		</Groups>
+
+		<!-- Custom Icon Bitmap Registration -->
+		<Bitmaps>
+			<Bitmap guid="guidImages" href="Resources\square-terminal.png" usedList="bmpPic1"/>
+		</Bitmaps>
+
+		<Buttons>
+			<!-- Run Button on Main Toolbar -->
+			<Button guid="guidCSharpClassroomCmdSet" id="cmdidRunCSharp" priority="0x0100" type="Button">
+				<Parent guid="guidCSharpClassroomCmdSet" id="CSharpClassroomToolbarGroup"/>
+				<Icon guid="guidImages" id="bmpPic1"/>
+				<Strings>
+					<ButtonText>C# Inline LaunchPad: Run</ButtonText>
+				</Strings>
+			</Button>
+
+			<!-- Toggle Auto-Save Button in Tools Menu -->
+			<Button guid="guidCSharpClassroomCmdSet" id="cmdidToggleAutoSave" priority="0x0200" type="Button">
+				<Parent guid="guidCSharpClassroomCmdSet" id="CSharpClassroomGroup"/>
+				<Strings>
+					<ButtonText>Auto-Save Before Run</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
+
+	<KeyBindings>
+		<KeyBinding guid="guidCSharpClassroomCmdSet" id="cmdidRunCSharp" editor="guidVSStd97" key1="VK_F5" mod1="CONTROL"/>
+	</KeyBindings>
+
+	<Symbols>
+		<GuidSymbol name="guidCSharpClassroomPackage" value="{e61f225c-7887-4e0e-bdc8-fc8326258445}"/>
+		<GuidSymbol name="guidCSharpClassroomCmdSet" value="{7F4A7D6D-6B37-4D5D-9B48-1A7A3F9B4A11}">
+			<IDSymbol name="CSharpClassroomGroup" value="0x1020"/>
+			<IDSymbol name="CSharpClassroomToolbarGroup" value="0x1030"/>
+			<IDSymbol name="cmdidRunCSharp" value="0x0100"/>
+			<IDSymbol name="cmdidToggleAutoSave" value="0x0200"/>
+		</GuidSymbol>
+
+		<!-- Custom Icon GUID Symbol -->
+		<GuidSymbol name="guidImages" value="{e8f32145-1234-4567-89ab-cdef01234567}">
+			<IDSymbol name="bmpPic1" value="1"/>
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>
