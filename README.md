@@ -1,17 +1,15 @@
 # C# Inline LaunchPad
 
-A lightweight Visual Studio 2026 extension designed to provide single-click inline execution of C# console applications and quick terminal access right from your main toolbar.
+A lightweight Visual Studio 2026 extension bringing JetBrains Rider-style inline execution and terminal output to C# console projects inside an integrated pane. .
 
 <img src="Resources/square-terminal.png" width="64" alt="C# Inline LaunchPad Icon" />
 
 ## Features
-
-* **Instant Toolbar & Shortcut Access:** Adds a dedicated purple `>_` terminal launch button directly alongside the standard Start/Debug controls (`priority="0x0950"`), and defaults to **`Alt + F5`** out of the box.
-* **Customizable Keybindings:** Fully exposed under `Tools -> Options -> Environment -> Keyboard` via the command `CSharpInlineLaunchPad.Run`.
-* **Smart Terminal Reuse:** Automatically reuses existing terminal instances instead of cluttering your workspace with duplicate tabs.
-* **Process Lifecycle Control:** Prevents file-lock errors (`cli process in use`) by cleanly terminating active background runs when re-launching.
-* **Automated Document Saving:** Automatically saves modified project files before executing `dotnet run` (toggleable via Tools menu or Options).
-* **Zero Telemetry & Noise Suppression:** Keeps output clean by filtering out redundant CLI banner noise.
+* **Toolbar Execution & Auto-Save Toggle:** Run active Console projects directly from the main toolbar. Includes a dedicated button to toggle auto-saving files before execution from tools menu.
+* **Integrated Terminal Pane:** Embeds standard input and output inside native terminal pane instead of  `cmd.exe` pop-ups.
+* **`Alt + F5` Hotkey:** .
+* **Interactive Standard I/O:** Full support for `Console.ReadLine()`, `Console.ReadKey()`, and real-time terminal interaction.
+* **Process Lifecycle Control:** Automatically reuses terminal tabs and cleanly terminates active background processes to prevent file-lock errors.
 * 
 | Toolbar Launch Button | Integrated Terminal Output |
 | :---: | :---: |
@@ -21,7 +19,7 @@ A lightweight Visual Studio 2026 extension designed to provide single-click inli
 
 1. Download the `.vsix` installer from the [Releases](https://github.com/jafar-alshishani/CSharpInlineLaunchPad/releases) tab or Visual Studio Marketplace.
 2. Double-click `CSharpInlineLaunchPad.vsix` to install.
-3. Restart Visual Studio 2022.
+3. Restart Visual Studio 2026.
 
 ## Requirement
 
