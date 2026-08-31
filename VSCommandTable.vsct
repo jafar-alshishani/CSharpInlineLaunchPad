@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
 	<Extern href="stdidcmd.h"/>
 	<Extern href="vsshlids.h"/>
@@ -29,6 +29,9 @@
 				<Icon guid="guidImages" id="bmpPic1"/>
 				<Strings>
 					<ButtonText>C# Inline LaunchPad: Run</ButtonText>
+					<CanonicalName>CSharpInlineLaunchPad.Run</CanonicalName>
+					<LocCanonicalName>CSharpInlineLaunchPad.Run</LocCanonicalName>
+					<ToolTipText>Run C# program in Inline LaunchPad Terminal</ToolTipText>
 				</Strings>
 			</Button>
 
@@ -37,13 +40,16 @@
 				<Parent guid="guidCSharpClassroomCmdSet" id="CSharpClassroomGroup"/>
 				<Strings>
 					<ButtonText>Auto-Save Before Run</ButtonText>
+					<CanonicalName>CSharpInlineLaunchPad.ToggleAutoSave</CanonicalName>
+					<LocCanonicalName>CSharpInlineLaunchPad.ToggleAutoSave</LocCanonicalName>
+					<ToolTipText>Toggle auto-saving all open modified files before running</ToolTipText>
 				</Strings>
 			</Button>
 		</Buttons>
 	</Commands>
 
 	<KeyBindings>
-		<KeyBinding guid="guidCSharpClassroomCmdSet" id="cmdidRunCSharp" editor="guidVSStd97" key1="VK_F5" mod1="CONTROL"/>
+		<KeyBinding guid="guidCSharpClassroomCmdSet" id="cmdidRunCSharp" editor="guidVSStd97" key1="VK_F5" mod1="ALT"/>
 	</KeyBindings>
 
 	<Symbols>

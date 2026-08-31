@@ -1,5 +1,7 @@
-﻿using CSharpInlineLaunchPad.Commands;
+using CSharpInlineLaunchPad.Commands;
+using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -11,13 +13,15 @@ namespace CSharpInlineLaunchPad
     /// This is the class that implements the package exposed by this assembly.
     /// </summary>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [ProvideMenuResource("Menus.ctmenu", 2)]
+    [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideMenuResource("Menus.ctmenu", 3)]
     [ProvideOptionPage(typeof(OptionPageGrid), "C# Inline LaunchPad", "General", 0, 0, true)]
     [Guid(CSharpInlineLaunchPad.PackageGuidString)]
     public sealed class CSharpInlineLaunchPad : AsyncPackage
     {
         /// <summary>
-        /// CSharpClassroomPackage GUID string.
+        /// CSharpInlineLaunchPad GUID string.
         /// </summary>
         public const string PackageGuidString = "e61f225c-7887-4e0e-bdc8-fc8326258445";
 

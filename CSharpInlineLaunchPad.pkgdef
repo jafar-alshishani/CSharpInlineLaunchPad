@@ -1,0 +1,34 @@
+[$RootKey$\Packages\{e61f225c-7887-4e0e-bdc8-fc8326258445}]
+@="CSharpInlineLaunchPad"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="CSharpInlineLaunchPad.CSharpInlineLaunchPad"
+"CodeBase"="$PackageFolder$\CSharpInlineLaunchPad.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Menus]
+"{e61f225c-7887-4e0e-bdc8-fc8326258445}"=", Menus.ctmenu, 3"
+
+[$RootKey$\AutoLoadPackages\{adfc4e64-0397-11d1-9f4e-00a0c911004f}]
+"{e61f225c-7887-4e0e-bdc8-fc8326258445}"=dword:00000000
+
+[$RootKey$\AutoLoadPackages\{f1536ef8-92d3-4433-9433-5044615a1664}]
+"{e61f225c-7887-4e0e-bdc8-fc8326258445}"=dword:00000000
+
+[$RootKey$\ToolsOptionsPages\C# Inline LaunchPad]
+@="#0"
+"Package"="{e61f225c-7887-4e0e-bdc8-fc8326258445}"
+
+[$RootKey$\ToolsOptionsPages\C# Inline LaunchPad\General]
+@="#0"
+"Package"="{e61f225c-7887-4e0e-bdc8-fc8326258445}"
+"Page"="{d4343cbc-3322-3e99-88ba-f2961508d4f6}"
+"IsServerAware"=dword:00000000
+"IsInUnifiedSettings"=dword:00000000
+
+[$RootKey$\AutomationProperties\C# Inline LaunchPad]
+"Package"="{e61f225c-7887-4e0e-bdc8-fc8326258445}"
+
+[$RootKey$\AutomationProperties\C# Inline LaunchPad\General]
+"Package"="{e61f225c-7887-4e0e-bdc8-fc8326258445}"
+[$RootKey$\AutomationProperties\C# Inline LaunchPad\General]
+"Name"="C# Inline LaunchPad.General"

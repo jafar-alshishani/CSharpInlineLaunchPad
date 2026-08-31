@@ -1,31 +1,32 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>14</LangVersion>
-
     <VSSDKBuildToolsAutoSetup>true</VSSDKBuildToolsAutoSetup>
-    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <AssemblyName>CSharpInlineLaunchPad</AssemblyName>
     <RootNamespace>CSharpInlineLaunchPad</RootNamespace>
+
+    <!-- Ensure NuGet.org is available for restore -->
+    <RestoreSources>https://api.nuget.org/v3/index.json</RestoreSources>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="LICENSE.txt" />
     <None Remove="Resources\icon.png" />
-    <None Remove="Resources\RunCSharp.svg" />
-    <None Remove="Icons.imagemanifest" />
     <None Remove="Resources\square-terminal.png" />
+    <None Remove="CSharpInlineLaunchPad.pkgdef" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="LICENSE.txt" />
     <Content Include="Resources\icon.png" />
     <Content Include="Resources\square-terminal.png" />
-    <ImageManifest Include="Icons.imagemanifest">
+    <Content Include="CSharpInlineLaunchPad.pkgdef">
       <IncludeInVSIX>true</IncludeInVSIX>
-    </ImageManifest>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -46,5 +47,4 @@
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.9.820" />
   </ItemGroup>
-
 </Project>

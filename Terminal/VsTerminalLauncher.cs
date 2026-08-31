@@ -31,8 +31,17 @@ internal static class VsTerminalLauncher
 
             string exeName = Path.GetFileNameWithoutExtension(projectPath) + ".exe";
 
-            // 1. Silent process kill + clear + run (suppressing CS warnings with quiet verbosity & WarningLevel=0)
-            string runCommand = $"taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & dotnet run --nologo -v q -p:WarningLevel=0 --project \"{projectPath}\"\r\n";
+            // 1. DUAL-LAUNCH LOGIC: Detect SDK-style (.NET Core/5+) vs Legacy (.NET Framework)
+            string projContent = File.Exists(projectPath) ? File.ReadAllText(projectPath) : string.Empty;
+            bool isSdkStyle = projContent.Contains("Sdk=\"Microsoft.NET.Sdk\"") || projContent.Contains("<Project Sdk=");
+
+            string msbuildExe = GetMsBuildPath();
+
+            string runCommand = isSdkStyle
+                // Modern SDK-style project: use dotnet run
+                ? $"taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & dotnet run --nologo -v q -p:WarningLevel=0 --project \"{projectPath}\"\r\n"
+                // Legacy .NET Framework project: build with resolved MSBuild path, /nologo flag, and launch executable directly
+                : $"taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & {msbuildExe} \"{projectPath}\" /t:Build /p:Configuration=Debug /v:q /nologo & .\\bin\\Debug\\{exeName}\r\n";
 
             // ---------------------------------------------------------
             // 2. REUSE EXISTING TAB (Preserves User's Custom Docking)
@@ -160,6 +169,26 @@ internal static class VsTerminalLauncher
             await ShowErrorAsync("C# Inline LaunchPad could not start the integrated Terminal.\n\n" + ex.Message);
             return false;
         }
+    }
+
+    private static string GetMsBuildPath()
+    {
+        try
+        {
+            string? ideDir = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule?.FileName);
+            if (ideDir != null)
+            {
+                // Navigate from <VS_ROOT>\Common7\IDE to <VS_ROOT>\MSBuild\Current\Bin\MSBuild.exe
+                string candidatePath = Path.GetFullPath(Path.Combine(ideDir, @"..\..\MSBuild\Current\Bin\MSBuild.exe"));
+                if (File.Exists(candidatePath))
+                {
+                    return $"\"{candidatePath}\"";
+                }
+            }
+        }
+        catch { }
+
+        return "msbuild"; // Fallback to system PATH if directory navigation fails
     }
 
     private static async Task SaveModifiedDocumentsAsync()
@@ -297,13 +326,13 @@ internal static class VsTerminalLauncher
         }
     }
 
-    private static async Task ShowErrorAsync(string message)
+    public static async Task ShowErrorAsync(string message)
     {
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
         VsShellUtilities.ShowMessageBox(
             ServiceProvider.GlobalProvider,
             message,
-            "C# Classroom",
+            "C# Inline LaunchPad",
             OLEMSGICON.OLEMSGICON_CRITICAL,
             OLEMSGBUTTON.OLEMSGBUTTON_OK,
             OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);

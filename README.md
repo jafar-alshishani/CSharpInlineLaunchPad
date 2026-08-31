@@ -6,10 +6,11 @@ A lightweight Visual Studio 2026 extension designed to provide single-click inli
 
 ## Features
 
-* **Instant Toolbar Access:** Adds a dedicated purple `>_` terminal launch button directly alongside the standard Start/Debug controls (`priority="0x0950"`).
+* **Instant Toolbar & Shortcut Access:** Adds a dedicated purple `>_` terminal launch button directly alongside the standard Start/Debug controls (`priority="0x0950"`), and defaults to **`Alt + F5`** out of the box.
+* **Customizable Keybindings:** Fully exposed under `Tools -> Options -> Environment -> Keyboard` via the command `CSharpInlineLaunchPad.Run`.
 * **Smart Terminal Reuse:** Automatically reuses existing terminal instances instead of cluttering your workspace with duplicate tabs.
 * **Process Lifecycle Control:** Prevents file-lock errors (`cli process in use`) by cleanly terminating active background runs when re-launching.
-* **Automated Document Saving:** Automatically saves modified project files before executing `dotnet run`.
+* **Automated Document Saving:** Automatically saves modified project files before executing `dotnet run` (toggleable via Tools menu or Options).
 * **Zero Telemetry & Noise Suppression:** Keeps output clean by filtering out redundant CLI banner noise.
 
 ## Installation
