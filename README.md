@@ -2,7 +2,7 @@
 
 A lightweight Visual Studio 2026 extension designed to provide single-click inline execution of C# console applications and quick terminal access right from your main toolbar.
 
-![C# Inline LaunchPad Toolbar](https://github.com/jafar-alshishani/CSharpInlineLaunchPad/blob/master/Resources/square-terminal.png)
+![C# Inline LaunchPad Toolbar](<img src="[path-to-your-icon.png](https://github.com/jafar-alshishani/CSharpInlineLaunchPad/blob/master/Resources/square-terminal.png)" width="64" alt="Icon" /> )
 
 ## Features
 
