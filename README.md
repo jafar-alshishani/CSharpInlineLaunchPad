@@ -17,7 +17,7 @@ A lightweight Visual Studio 2026 extension bringing JetBrains Rider-style inline
 | *Toolbar integration* | *Interactive terminal execution* |
 ## Installation
 
-1. Download the `.vsix` installer from the [Releases](https://github.com/jafar-alshishani/CSharpInlineLaunchPad/releases) tab or Visual Studio Marketplace.
+1. Download the `.vsix` installer from the [Releases](https://github.com/jafar-alshishani/CSharpInlineLaunchPad/releases) tab or [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jafar-alshishani.csharp-inline-launchpad)..
 2. Double-click `CSharpInlineLaunchPad.vsix` to install.
 3. Restart Visual Studio 2026.
 
