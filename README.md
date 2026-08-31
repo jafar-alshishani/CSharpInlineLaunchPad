@@ -12,7 +12,11 @@ A lightweight Visual Studio 2026 extension designed to provide single-click inli
 * **Process Lifecycle Control:** Prevents file-lock errors (`cli process in use`) by cleanly terminating active background runs when re-launching.
 * **Automated Document Saving:** Automatically saves modified project files before executing `dotnet run` (toggleable via Tools menu or Options).
 * **Zero Telemetry & Noise Suppression:** Keeps output clean by filtering out redundant CLI banner noise.
-
+* 
+| Toolbar Launch Button | Integrated Terminal Output |
+| :---: | :---: |
+| ![Dedicated Run Button](assets/a.png) | ![C# LaunchPad Terminal](assets/2_3.png) |
+| *Toolbar integration* | *Interactive terminal execution* |
 ## Installation
 
 1. Download the `.vsix` installer from the [Releases](https://github.com/jafar-alshishani/CSharpInlineLaunchPad/releases) tab or Visual Studio Marketplace.
