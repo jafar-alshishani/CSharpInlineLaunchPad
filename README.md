@@ -5,20 +5,15 @@ A lightweight Visual Studio extension that brings JetBrains Rider-style inline e
 <img src="https://raw.githubusercontent.com/jafar-alshishani/CSharpInlineLaunchPad/master/Resources/square-terminal.png" width="64" alt="C# Inline LaunchPad Icon" />
 
 ## Features
-
-* **Toolbar Execution & Auto-Save Toggle:** Run the active console project from the main toolbar. A dedicated option lets you turn auto-saving before each run on or off.
-* **Integrated Terminal Pane:** Standard input and output appear in a native terminal tab in the same window, with no `cmd.exe` pop-ups.
-* **`Alt + F5` Hotkey:** Run the project without reaching for the mouse.
-* **Interactive Console Input:** Programs that call `Console.ReadLine()` work in the terminal pane, and input typed in the pane reaches your program.
-* **Runs from the project folder:** Relative paths such as `File.ReadAllText("data.txt")` resolve next to your project files.
-* **UTF-8 output:** Symbols and non-English text display correctly.
-* **Exit code message:** Each run ends with `Process finished with exit code N`, so you know when the program is done and how it ended.
-* **Tab reuse:** Re-running reuses the same terminal tab and stops the previous run of the same program, which avoids file-lock errors.
-* **.NET and .NET Framework:** Supports SDK-style projects (.NET Core / .NET 5+) and legacy .NET Framework console projects.
-
+* **Toolbar Execution & Auto-Save Toggle:** Run active Console projects directly from the main toolbar. Includes a dedicated button to toggle auto-saving files before execution from tools menu.
+* **Integrated Terminal Pane:** Embeds standard input and output inside native terminal pane instead of  `cmd.exe` pop-ups.
+* **`Alt + F5` Hotkey:** .
+* **Interactive Standard I/O:** Full support for `Console.ReadLine()`, `Console.ReadKey()`, and real-time terminal interaction.
+* **Process Lifecycle Control:** Automatically reuses terminal tabs and cleanly terminates active background processes to prevent file-lock errors.
+* 
 | Toolbar Launch Button | Integrated Terminal Output |
 | :---: | :---: |
-| ![Dedicated Run Button](https://raw.githubusercontent.com/jafar-alshishani/CSharpInlineLaunchPad/master/assets/a.png) | ![C# LaunchPad Terminal](https://raw.githubusercontent.com/jafar-alshishani/CSharpInlineLaunchPad/master/assets/2_3.png) |
+| ![Dedicated Run Button](assets/a.png) | ![C# LaunchPad Terminal](assets/2_3.png) |
 | *Toolbar integration* | *Interactive terminal execution* |
 
 ## Installation
