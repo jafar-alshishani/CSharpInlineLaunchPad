@@ -33,7 +33,7 @@ A lightweight Visual Studio extension that brings JetBrains Rider-style inline e
 * .NET Framework 4.6.2 console projects
 
 ## Known limitations
-
+- Open Folder mode (a folder opened without a solution or project) is not supported yet. Open the `.sln`, `.slnx` or `.csproj` file instead.
 * The program runs without the debugger attached, like Ctrl+F5. Use the normal Start Debugging command for breakpoints.
 * Visual Studio 2022 is allowed by the installer but has not been tested at runtime.
 * Legacy projects with a non-default output folder (for example `bin\x64\Debug`) are not yet supported.
