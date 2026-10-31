@@ -133,7 +133,10 @@ namespace CSharpInlineLaunchPad.Commands
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ActivityLog.TryLogError("C# Inline LaunchPad", "FindTargetProject (startup project) failed: " + ex);
+            }
 
             // 2. Secondary: Active Document's Containing Project
             try
@@ -147,7 +150,10 @@ namespace CSharpInlineLaunchPad.Commands
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ActivityLog.TryLogError("C# Inline LaunchPad", "FindTargetProject (active document) failed: " + ex);
+            }
 
             // 3. Tertiary: Loaded Solution Projects via DTE (prefer non-test projects)
             try
@@ -166,7 +172,10 @@ namespace CSharpInlineLaunchPad.Commands
                                 validProjects.Add(fullName);
                             }
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            ActivityLog.TryLogWarning("C# Inline LaunchPad", "FindTargetProject (reading project path) failed: " + ex);
+                        }
                     }
 
                     var bestProject = validProjects
@@ -179,7 +188,10 @@ namespace CSharpInlineLaunchPad.Commands
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ActivityLog.TryLogError("C# Inline LaunchPad", "FindTargetProject (solution projects) failed: " + ex);
+            }
 
             // 4. Fallback: Clean File System Scan (filtering out build artifacts & backup files)
             try
@@ -194,7 +206,10 @@ namespace CSharpInlineLaunchPad.Commands
 
                 return candidate;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ActivityLog.TryLogError("C# Inline LaunchPad", "FindTargetProject (file system scan) failed: " + ex);
+            }
 
             return null;
         }

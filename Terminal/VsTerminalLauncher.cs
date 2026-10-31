@@ -186,7 +186,10 @@ internal static class VsTerminalLauncher
                 }
             }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            ActivityLog.TryLogError("C# Inline LaunchPad", "GetMsBuildPath failed: " + ex);
+        }
 
         return "msbuild"; // Fallback to system PATH if directory navigation fails
     }
@@ -207,9 +210,10 @@ internal static class VsTerminalLauncher
                 }
             }
         }
-        catch
+        catch (Exception ex)
         {
             // Fail silently if DTE or options are temporarily unavailable
+            ActivityLog.TryLogError("C# Inline LaunchPad", "SaveModifiedDocumentsAsync failed: " + ex);
         }
     }
 
@@ -223,7 +227,10 @@ internal static class VsTerminalLauncher
             frame.SetFramePos((VSSETFRAMEPOS)(-1), ref emptyGuid, 0, 0, 0, 0);
             frame.Show();
         }
-        catch { }
+        catch (Exception ex)
+        {
+            ActivityLog.TryLogError("C# Inline LaunchPad", "DockToBottomPanel failed: " + ex);
+        }
     }
 
     private static bool TrySendInput(object? target, string text)
@@ -260,7 +267,10 @@ internal static class VsTerminalLauncher
                 }
             }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            ActivityLog.TryLogError("C# Inline LaunchPad", "TrySendInput failed: " + ex);
+        }
 
         return false;
     }
@@ -306,7 +316,10 @@ internal static class VsTerminalLauncher
                 var type = assembly.GetType(fullName, false);
                 if (type != null) return type;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ActivityLog.TryLogWarning("C# Inline LaunchPad", "FindType (scanning loaded assemblies) failed: " + ex);
+            }
         }
 
         try
@@ -320,8 +333,9 @@ internal static class VsTerminalLauncher
             var assembly = Assembly.LoadFrom(terminalPath);
             return assembly.GetType(fullName, false);
         }
-        catch
+        catch (Exception ex)
         {
+            ActivityLog.TryLogError("C# Inline LaunchPad", "FindType (loading terminal assembly) failed: " + ex);
             return null;
         }
     }
