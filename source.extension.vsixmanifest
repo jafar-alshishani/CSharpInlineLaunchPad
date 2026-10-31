@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
-		<Identity Id="CSharpInlineLaunchPad.7F4A7D6D" Version="1.0.0" Language="en-US" Publisher="jafar-alshishani" />
+		<Identity Id="CSharpInlineLaunchPad.7F4A7D6D" Version="1.2.0" Language="en-US" Publisher="jafar-alshishani" />
 		<DisplayName>C# Inline LaunchPad</DisplayName>
 		<Description xml:space="preserve">Fast, single-click inline C# program runner and integrated terminal launcher for Visual Studio.</Description>
 		<MoreInfo>https://github.com/jafar-alshishani/CSharpInlineLaunchPad</MoreInfo>
