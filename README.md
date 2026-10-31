@@ -10,9 +10,11 @@ A lightweight Visual Studio 2026 extension bringing JetBrains Rider-style inline
 * **`Alt + F5` Hotkey:** .
 * **Interactive Standard I/O:** Full support for `Console.ReadLine()`, `Console.ReadKey()`, and real-time terminal interaction.
 * **Process Lifecycle Control:** Automatically reuses terminal tabs and cleanly terminates active background processes to prevent file-lock errors.
-* 
-| Toolbar Launch Button | Integrated Terminal Output |
+* **UTF-8 console output:** Unicode symbols and accented characters (for example `✓ ★ é`) display correctly. Arabic letters display, but right-to-left ordering isn't supported by the terminal.
+| Toolbar Launch Button | Integrated Terminal Output|
 | :---: | :---: |
+
+
 | ![Dedicated Run Button](assets/a.png) | ![C# LaunchPad Terminal](assets/2_3.png) |
 | *Toolbar integration* | *Interactive terminal execution* |
 ## Installation
