@@ -30,6 +30,7 @@ internal static class VsTerminalLauncher
             await SaveModifiedDocumentsAsync();
 
             string exeName = Path.GetFileNameWithoutExtension(projectPath) + ".exe";
+            string projectDir = Path.GetDirectoryName(projectPath);
 
             // 1. DUAL-LAUNCH LOGIC: Detect SDK-style (.NET Core/5+) vs Legacy (.NET Framework)
             string projContent = File.Exists(projectPath) ? File.ReadAllText(projectPath) : string.Empty;
@@ -39,9 +40,9 @@ internal static class VsTerminalLauncher
 
             string runCommand = isSdkStyle
                 // Modern SDK-style project: use dotnet run
-                ? $"taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & dotnet run --nologo -v q -p:WarningLevel=0 --project \"{projectPath}\"\r\n"
+                ? $"cd /d \"{projectDir}\" & chcp 65001 >nul & taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & dotnet run --nologo -v q -p:WarningLevel=0 --project \"{projectPath}\" & echo( & call echo Process finished with exit code %^errorlevel%\r\n"
                 // Legacy .NET Framework project: build with resolved MSBuild path, /nologo flag, and launch executable directly
-                : $"taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & {msbuildExe} \"{projectPath}\" /t:Build /p:Configuration=Debug /v:q /nologo & .\\bin\\Debug\\{exeName}\r\n";
+                : $"cd /d \"{projectDir}\" & chcp 65001 >nul & taskkill /IM \"{exeName}\" /F >nul 2>&1 & cls & {msbuildExe} \"{projectPath}\" /t:Build /p:Configuration=Debug /v:q /nologo && .\\bin\\Debug\\{exeName} & echo( & call echo Process finished with exit code %^errorlevel%\r\n";
 
             // ---------------------------------------------------------
             // 2. REUSE EXISTING TAB (Preserves User's Custom Docking)
